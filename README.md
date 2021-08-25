@@ -1,4 +1,4 @@
-# careerHunt
+# CareerHunt
 A simplified application that cross reference students results with the University guide book. Includes powerful API that serves news and updates on concurrent academic opportunities such as scholarship, articles papers etc
 
 Make sure you have python installed in your computer.
@@ -16,7 +16,7 @@ Go back to the webproject folder then use the command "py manage.py runserver" t
 
 Make sure you complete migration.
 
-#Linux Machine
+# Linux Machine
 
 https://www.codegrepper.com/code-examples/shell/how+to+activate+venv+in+linux
 
@@ -25,8 +25,10 @@ or
 Activate the virtual environment on linux
 You can activate the python environment by running the following command:
 
+Open the Project directory with a desired code editor
+
 Mac OS / Linux
-source mypython/bin/activate
+source venv/bin/activate
 
 
 
