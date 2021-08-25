@@ -1,0 +1,42 @@
+{% extends "base.html"%}
+{% block content%}
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+      <div class="col-md-4">
+        <div class ="card mt-5 shadow rounded-2">
+          <div class="card-header text-white bg-dark">
+            <center><h3>Login</h3></center>
+          </div>
+          <div class="card-body">
+            <form method="POST">
+              {% csrf_token %}
+              <div class="form-group col-md-12">
+                <label>{{ form.username.label }}</label>
+                   {{ form.username }}
+              </div>
+              <div class="form-group col-md-12">
+                <label>{{ form.password.label }}</label>
+                   {{ form.password }}
+              </div>
+
+              <div class="form-group mt-3">
+                  <button class="btn btn-outline-dark btn-sm col-md-12" type="submit"><b>Login</b></button>
+              </div>
+              <div class="d-flex d-flex-row justify-content-between">
+                <a class="mt-2" href="{% url 'register' %}">Register an Account</a>
+                <a class="mt-1" href="#">Password Reset</a>
+              </div>
+            </form>
+          </div>
+          <div class="card-footer">
+            <center>
+              <small class="text-muted">All Rights Reserved &copy; <a class="mt-1" href="#">Alvart Collestion </a></small>
+            </center>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+{% endblock %}

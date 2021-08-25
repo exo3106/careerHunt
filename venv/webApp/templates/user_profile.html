@@ -1,0 +1,187 @@
+{% extends "user_dash.html"%}
+{% load widget_tweaks  %}
+
+{% block content%}
+<div class="row">
+          <div class="col-md-4">
+            <div class="card card-user">
+              <div class="image">
+               <img src="">
+              </div>
+              <div class="card-body">
+                <div class="author">
+                  <a href="#">
+                    <img class="avatar border-gray" src="#" alt="...">
+                    <h5 class="title">Chet Faker</h5>
+                  </a>
+                  <p class="description">
+                    @chetfaker
+                  </p>
+                </div>
+                <p class="description text-center">
+                  "I like the way you work it <br>
+                  No diggity <br>
+                  I wanna bag it up"
+                </p>
+              </div>
+              <div class="card-footer">
+                <hr>
+                <div class="button-container">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-6 col-6 ml-auto">
+                      <h5>12<br><small>Files</small></h5>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
+                      <h5>2GB<br><small>Used</small></h5>
+                    </div>
+                    <div class="col-lg-3 mr-auto">
+                      <h5>24,6$<br><small>Spent</small></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Team Members</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled team-members">
+                  <li>
+                    <div class="row">
+                      <div class="col-md-2 col-2">
+                        <div class="avatar">
+                          <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                        </div>
+                      </div>
+                      <div class="col-md-7 col-7">
+                        DJ Khaled
+                        <br />
+                        <span class="text-muted"><small>Offline</small></span>
+                      </div>
+                      <div class="col-md-3 col-3 text-right">
+                        <btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col-md-2 col-2">
+                        <div class="avatar">
+                          <img src="../assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                        </div>
+                      </div>
+                      <div class="col-md-7 col-7">
+                        Creative Tim
+                        <br />
+                        <span class="text-success"><small>Available</small></span>
+                      </div>
+                      <div class="col-md-3 col-3 text-right">
+                        <btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col-md-2 col-2">
+                        <div class="avatar">
+                          <img src="../assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                        </div>
+                      </div>
+                      <div class="col-ms-7 col-7">
+                        Flume
+                        <br />
+                        <span class="text-danger"><small>Busy</small></span>
+                      </div>
+                      <div class="col-md-3 col-3 text-right">
+                        <btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Edit Profile</h5>
+              </div>
+              <div class="card-body">
+                <form action="{% url 'profile' %}" method="POST" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+                      <div class="row">
+                          <div class="form-group col-md-4">
+                              <label>First Name</label>
+                              {%  render_field pform.first_name|add_class:"form-control form-control-sm"|add_required_class:"is-required" placeholder="Enter First Name" %}
+                          </div>
+                          <div class="form-group col-md-4">
+                              <label>Last Name</label>
+                              {%  render_field pform.last_name|add_class:"form-control form-control-sm"|add_required_class:"is-required" placeholder="Enter Last Name" %}
+                          </div>
+                        <div class="form-group col-md-4">
+                              <label>Email</label>
+                              {%  render_field pform.email|add_class:"form-control form-control-sm"|add_required_class:"is-required" placeholder="Enter Email" %}
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-6">
+                          <label>Gender</label>
+                              {%  render_field pform.gender|add_class:"form-control form-control-sm"|add_required_class:"is-required" %}
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label>City</label>
+                              {%  render_field pform.city|add_class:"form-control form-control-sm"|add_required_class:"is-required" value="profile.email" %}
+                        </div>
+                      </div>
+                        <!-- And the rest of the fields -->
+                      <div class="row">
+                        <div class="form-group col-md-4">
+                          <label>Phone</label>
+                              {%  render_field pform.phone|add_class:"form-control form-control-sm"|add_required_class:"is-required" placeholder="Enter Phone" %}
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label>Address</label>
+                              {%  render_field pform.address|add_class:"form-control form-control-sm"|add_required_class:"is-required" placeholder="Enter Address" %}
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label>Zip</label>
+                              {%  render_field pform.zip|add_class:"form-control form-control-sm"|add_required_class:"is-required"  placeholder="Enter Zip" %}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-8">
+                          <button class="btn btn-danger col-md-12" type="submit"><b>Update Profile</b></button>
+                        </div>
+                        <div class="form-group col-md-4">
+                          <a class="btn btn-block btn-info"  type="button" href="#">Need Help ?</a>
+                        </div>
+                      </div>
+                    </form>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endblock %}
+{% block footer %}
+<footer class="footer footer-black  footer-white ">
+        <div class="container-fluid">
+          <div class="row">
+            <nav class="footer-nav">
+              <ul>
+                <li><a href="https://www.alvartxbrungas.com" target="_blank">Alvart x Brungas</a></li>
+              </ul>
+            </nav>
+            <div class="credits ml-auto">
+              <span class="copyright">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>, made with <i class="fa fa-heart heart"></i> by Alvart Collection
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+{% endblock%}

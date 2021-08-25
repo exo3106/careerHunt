@@ -1,0 +1,211 @@
+{% extends "user_dash.html"%}
+{% load widget_tweaks  %}
+{% block content%}
+    <div class="row">
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-bank text-warning"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category"> Catalogue Created </p>
+                      <p class="card-title"><p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-refresh"></i>
+                  Update Now
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-zoom-split text-success"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                        <p class="card-category"> Total Search Entries </p>
+                        <p class="card-title"><p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-calendar-o"></i>
+                  Last day
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-email-85 text-danger"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">University Profiles</p>
+                      <p class="card-title">23<p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-clock-o"></i>
+                  In the last hour
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-single-02 text-primary"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">Users</p>
+                      <p class="card-title"><p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-refresh"></i>
+                  Update now
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!--Table Start Here-->
+  <div class="row">
+    <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <div class="d-flex justify-content-between">
+                    <h5 class="card-title">Catalogues List</h5>
+                    <button class="btn btn-danger btn-sm" type="button"  data-toggle="modal" data-target="#catalogue" >
+                        <span><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Catalogue </span>
+                    </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                       <thead class="text-danger">
+                       <tr>
+                            <th>Catalogue</th>
+                            <th>City</th>
+                            <th>Code</th>
+                            <th>Instution Type</th>
+                            <th>Ownership</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ctr in  catalogue %}
+                            <tr><td>{{ ctr.uni_name }}</td><td>{{ ctr.city }}</td><td>{{ ctr.code }}</td><td>{{ ctr.inst_type }}</td><td>{{ ctr.ownership }}</td></tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+      <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <div class="d-flex justify-content-between">
+                    <h5 class="card-title">Doc Updates</h5>
+                </div>
+              </div>
+                  <div class="card-body">
+                      <ul class="list-group">
+                        {% for ctr in  docTitle %}
+                          <li class="list-group-item"><b>{{ ctr.title }}</b></li>
+                        {% endfor %}
+                      </ul>
+                  </div>
+            </div>
+      </div>
+  </div>
+      <!-- Modal -->
+      <div class="modal fade" id="catalogue" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">News and Updates</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                 <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="myfile">
+                    <button type="submit">Upload CSV File</button>
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>
+ <!-- End Modal -->
+{% endblock %}
+{% block footer %}
+      <footer class="footer footer-black  footer-white ">
+        <div class="container-fluid">
+          <div class="row">
+            <nav class="footer-nav">
+              <ul>
+                <li><a href="https://www.alvartxbrungas.com" target="_blank">Alvart x Brungas</a></li>
+              </ul>
+            </nav>
+            <div class="credits ml-auto">
+              <span class="copyright">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>, made with <i class="fa fa-heart heart"></i> by Alvart Collection
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+{% endblock %}

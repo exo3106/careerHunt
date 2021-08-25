@@ -1,0 +1,47 @@
+{% load static %}
+{% load widget_tweaks  %}
+<html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Office Master</title>
+
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/paper-dashboard.css' %}" rel="stylesheet">
+  <link href="{% static 'fonts/css/all.css' %}" rel="stylesheet">
+  <body>
+    <div class="row mt-5">
+        <div class="col-md-4">
+
+       </div>
+       <div class="col-md-4">
+           <div class="m-4">
+               <center><h5 class="card-header mb-4">Successfully Logged out</h5></center>
+               <div class="form-group">
+                   <a type="button"  href= "{% url 'login' %}" class="btn btn-danger btn-block"><b>Take me Login</b></a>
+                   <a type="button"  href= "#" class="btn btn-outline-danger btn-block"><b><div>Check out other products</div></b></a>
+               </div>
+
+               <div class="card-footer mt-4">
+                   <center>
+                       <small class="text-muted">All Rights Reserved &copy; <a class="mt-1" href="#">Alvart Collestion </a></small>
+                   </center>
+               </div>
+           </div>
+       </div>
+        <div class="col-md-4">
+
+       </div>
+    </div>
+  <!-- SCRIPTS -->
+<!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/core/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/core/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/core/popper.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/plugins/chartjs.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/plugins/bootstrap-notify.js' %}"></script>
+  <!--  Google Maps Plugin    -->
+  <!--  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>-->
+  </body>
+</html>
